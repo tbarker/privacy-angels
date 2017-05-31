@@ -1,5 +1,7 @@
 = Privacy Angels
 
+image:https://travis-ci.org/tbarker/privacy-angels.svg?branch=master["Build Status", link="https://travis-ci.org/tbarker/privacy-angels"]
+
 This is an initial attempt at roughing out some Solidity to implement
 the Privacy Angels concept [outlined on my blog]https://thomasbarker.com/16/05/privacy-angels .
 
