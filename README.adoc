@@ -1,0 +1,10 @@
+= Privacy Angels
+
+This is an initial attempt at roughing out some Solidity to implement
+the Privacy Angels concept [outlined on my blog]https://thomasbarker.com/16/05/privacy-angels .
+
+== Future Work
+
+* It's not very efficient to create a new angel for every transfer.
+* There should be an Angel that checks a list of names. That list should be shareable and compact (bloom filter?).
+* Unit test more than the happy path!
