@@ -2,6 +2,11 @@
   "name": "privacy-angels",
   "version": "0.0.1",
   "devDependencies": {
-    "ethereumjs-testrpc": "^3.0.5"
-  }
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-register": "^6.26.0"
+  },
 }

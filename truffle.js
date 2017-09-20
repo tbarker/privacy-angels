@@ -1,4 +1,9 @@
-var TestRPC = require("ethereumjs-testrpc");
+const TestRPC = require("ethereumjs-testrpc");
+
+require('babel-polyfill');
+require('babel-register')({
+  ignore: /node_modules\/(?!zeppelin-solidity)/
+});
 
 module.exports = {
   networks: {
