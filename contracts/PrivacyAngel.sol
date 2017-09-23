@@ -1,4 +1,5 @@
-pragma solidity ^0.4.1;
+pragma solidity ^0.4.8;
+
 
 contract PrivacyAngel {
 
@@ -11,5 +12,6 @@ contract PrivacyAngel {
     function declareDeletion();
     
     event Retract(); // Event raised if I withdraw the right to use my information
+    event TransferredTo(address parent, address child);
 
 }

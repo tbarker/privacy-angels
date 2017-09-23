@@ -1,22 +1,21 @@
-pragma solidity ^0.4.1;
+pragma solidity ^0.4.8;
 
 import './PrivacyAngel.sol';
 import './ProtectedDataControl.sol';
 
-contract BasePrivacyAngel is PrivacyAngel, ProtectedDataControl
-{
+
+contract BasePrivacyAngel is PrivacyAngel, ProtectedDataControl {
 
     function requestTransferTo(bytes32 name, address transferee)
-        returns (bool _maybe, PrivacyAngel _childAngel) // May return null
+        returns (bool maybe, PrivacyAngel childAngel) // May return null
     {
-        _maybe = canTransferTo(name);
+        maybe = canTransferTo(name);
 
-        if(_maybe)
-        {
+        if (maybe) {
             // Spawn an Angel with the same rules
-            _childAngel = child(name, transferee);
+            childAngel = child(name, transferee);
         } else {
-            _childAngel = this;
+            childAngel = this;
         }
     }
 
@@ -28,8 +27,7 @@ contract BasePrivacyAngel is PrivacyAngel, ProtectedDataControl
         return child(name, transferee);
     }
 
-    function declareDeletion()
-    {
+    function declareDeletion() {
         Retract();
         selfdestruct(dataSubject);
     }

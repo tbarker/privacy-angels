@@ -2,23 +2,21 @@ pragma solidity ^0.4.8;
 
 import './BasePrivacyAngel.sol';
 
+
 contract DenyAllAngel is BasePrivacyAngel {
 
-    function DenyAllAngel(address _dataSubject, address dataController, bytes32 _sha256)
-    {
+    function DenyAllAngel(address _dataSubject, address _dataController, bytes32 _sha256) {
         dataSubject = _dataSubject;
-        dataController = dataController;
+        dataController = _dataController;
         sha256 = _sha256;
     }
 
-    function canTransferTo(bytes32 name) returns (bool)
-    {
+    function canTransferTo(bytes32 name) returns (bool) {
         return false;
     }
 
-    function child(bytes32 name, address transfee) internal returns (PrivacyAngel)
-    {
-        throw;
+    function child(bytes32 name, address transfee) internal returns (PrivacyAngel) {
+        revert();
     }
 
 }
