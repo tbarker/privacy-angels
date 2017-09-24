@@ -12,11 +12,13 @@
     "solium": "^0.5.5"
   },
   "dependencies": {
-    "ethereumjs-testrpc": "^3.0.5",
     "babel-polyfill": "^6.26.0",
-    "babel-register": "^6.26.0"
+    "babel-register": "^6.26.0",
+    "ethereumjs-testrpc": "^3.0.5",
+    "truffle": "^3.4.9"
   },
   "scripts": {
+    "test": "node_modules/.bin/truffle test",
     "lint": "node_modules/.bin/solium --dir ./contracts && node_modules/.bin/eslint .",
     "coverage": "node_modules/.bin/solidity-coverage"
   }
