@@ -1,9 +1,9 @@
-pragma solidity ^0.4.8;
+pragma solidity ^0.4.15;
 
 
 contract PrivacyAngel {
 
-    bytes32 public sha256;
+    bytes32 public hash;
     
     function canTransferTo(bytes32 name) returns (bool);
     function requestTransferTo(bytes32 name, address transferee) returns (bool maybe, PrivacyAngel childAngel); // May return null
