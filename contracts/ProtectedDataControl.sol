@@ -1,4 +1,4 @@
-pragma solidity ^0.4.15;
+pragma solidity ^0.4.23;
 
 
 contract ProtectedDataControl {
@@ -6,7 +6,7 @@ contract ProtectedDataControl {
     address public dataSubject;
     address public dataController;
 
-    function ProtectedDataControl() {
+    constructor() public {
         dataSubject = msg.sender;
     }
 

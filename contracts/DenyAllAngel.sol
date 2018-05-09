@@ -1,17 +1,17 @@
-pragma solidity ^0.4.15;
+pragma solidity ^0.4.23;
 
-import './BasePrivacyAngel.sol';
+import "./BasePrivacyAngel.sol";
 
 
 contract DenyAllAngel is BasePrivacyAngel {
 
-    function DenyAllAngel(address _dataSubject, address _dataController, bytes32 _hash) {
+    constructor(address _dataSubject, address _dataController, bytes32 _hash) public {
         dataSubject = _dataSubject;
         dataController = _dataController;
         hash = _hash;
     }
 
-    function canTransferTo(bytes32 name) returns (bool) {
+    function canTransferTo(bytes32 name) public returns (bool) {
         return false;
     }
 

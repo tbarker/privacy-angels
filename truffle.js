@@ -1,4 +1,4 @@
-const TestRPC = require('ethereumjs-testrpc');
+const TestRPC = require('ganache-cli');
 
 require('babel-polyfill');
 require('babel-register')({

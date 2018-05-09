@@ -1,6 +1,6 @@
-pragma solidity ^0.4.15;
+pragma solidity ^0.4.23;
 
-import './AllowAllAngel.sol';
+import "./AllowAllAngel.sol";
 
 
 contract AllowAllAngelFactory {
@@ -8,7 +8,7 @@ contract AllowAllAngelFactory {
         address _dataSubject,
         address _dataController,
         bytes32 _hash
-    ) returns (AllowAllAngel)
+    ) public returns (AllowAllAngel)
     {
         return new AllowAllAngel(_dataSubject, _dataController, _hash, this);
     }
