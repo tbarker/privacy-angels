@@ -8,7 +8,7 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.11.0",
     "pre-commit": "^1.2.2",
-    "solidity-coverage": "^0.5.0",
+    "solidity-coverage": "^0.5.4",
     "solium": "^1.1.7"
   },
   "dependencies": {
