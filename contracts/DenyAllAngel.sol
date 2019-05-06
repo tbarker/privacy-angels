@@ -1,4 +1,4 @@
-pragma solidity ^0.4.23;
+pragma solidity ^0.5.7;
 
 import "./BasePrivacyAngel.sol";
 
@@ -11,10 +11,12 @@ contract DenyAllAngel is BasePrivacyAngel {
         hash = _hash;
     }
 
+    // solhint-disable-next-line no-unused-vars
     function canTransferTo(bytes32 name) public returns (bool) {
         return false;
     }
 
+    // solhint-disable-next-line no-unused-vars
     function child(bytes32 name, address transfee) internal returns (PrivacyAngel) {
         revert();
     }

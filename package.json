@@ -2,24 +2,47 @@
   "name": "privacy-angels",
   "version": "0.0.1",
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.6.1",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.11.0",
-    "pre-commit": "^1.2.2",
-    "solidity-coverage": "^0.5.4",
-    "solium": "^1.1.7"
+    "babel-core": "6.26.3",
+    "babel-preset-env": "1.6.1",
+    "chai": "4.2.0",
+    "chai-bn": "0.1.0-beta.0",
+    "eslint": "4.19.1",
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-plugin-import": "2.11.0",
+    "pre-commit": "1.2.2",
+    "solidity-coverage": "0.5.11",
+    "truffle-flattener": "1.3.0",
+    "trufflepig": "1.1.2",
+    "solhint": "1.5.0"
   },
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
-    "babel-register": "^6.26.0",
-    "ganache-cli": "^6.1.0",
-    "truffle": "^4.1.8"
+    "babel-polyfill": "6.26.0",
+    "babel-register": "6.26.0",
+    "ganache-cli": "6.2.5",
+    "truffle": "5.0.12",
+    "truffle-contract": "4.0.11",
+    "truffle-hdwallet-provider": "1.0.2",
+    "web3": "1.0.0-beta.37"
   },
   "scripts": {
-    "test": "node_modules/.bin/truffle test",
-    "lint": "node_modules/.bin/solium --dir ./contracts && node_modules/.bin/eslint .",
-    "coverage": "node_modules/.bin/solidity-coverage"
-  }
+    "test": "npx truffle test",
+    "lint": "npm run lint:js && npm run lint:sol",
+    "lint:fix": "npm run lint:js:fix",
+    "lint:js": "npx eslint .",
+    "lint:js:fix": "npx eslint . --fix",
+    "lint:sol": "npx solhint --max-warnings 0 \"contracts/*.sol\"",
+    "coverage": "npx solidity-coverage",
+    "deploy": "npx truffle deploy",
+    "flatten": "npx truffle-flattener $(find contracts -type f -print0 | tr \\\\0 \\  ) > build/flat.sol",
+    "securify": "docker pull chainsecurity/securify && docker run -v $(pwd) chainsecurity/securify",
+    "slither": "docker pull trailofbits/slither && npx truffle compile && npm run flatten && docker run -v $(pwd):/tmp/truffle:ro trailofbits/slither slither /tmp/truffle/build/flat.sol"
+  },
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ]
 }

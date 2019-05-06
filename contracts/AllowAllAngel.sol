@@ -1,4 +1,4 @@
-pragma solidity ^0.4.23;
+pragma solidity ^0.5.7;
 
 import "./BasePrivacyAngel.sol";
 import "./AllowAllAngelFactory.sol";
@@ -6,7 +6,7 @@ import "./AllowAllAngelFactory.sol";
 
 contract AllowAllAngel is BasePrivacyAngel {
 
-    AllowAllAngelFactory factory;
+    AllowAllAngelFactory private factory;
 
     constructor(
         address _dataSubject,
@@ -20,10 +20,12 @@ contract AllowAllAngel is BasePrivacyAngel {
         factory = _factory;
     }
 
+    // solhint-disable-next-line no-unused-vars
     function canTransferTo(bytes32 name) public returns (bool) {
         return true;
     }
 
+    // solhint-disable-next-line no-unused-vars
     function child(bytes32 name, address transferee) internal returns (PrivacyAngel) {
         return factory.createAllowAllAngel(dataSubject, transferee, hash);
     }
